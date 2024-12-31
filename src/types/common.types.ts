@@ -41,3 +41,8 @@ export type BookAuthorrefConnection = {
 export type BookAuthorrefEdge = {
     node: Author;
 };
+
+export interface LoadMoreVariables {
+    limit?: number;
+    skip?: number;
+}

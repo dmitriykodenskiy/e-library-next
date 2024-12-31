@@ -8,6 +8,8 @@ export type AllBooksResponse = {
     };
 };
 
+export type BookByIdResponse = AllBooksResponse;
+
 export type Book = {
     number_of_pages: number;
     short_description: string;
@@ -16,6 +18,9 @@ export type Book = {
     link: Link;
     imageConnection: AssetConnection;
     authorrefConnection: BookAuthorrefConnection;
+    system: {
+        uid: string;
+    };
 };
 
 export type BookAuthorrefConnection = {
