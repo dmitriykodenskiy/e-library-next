@@ -1,4 +1,4 @@
-import { AllBooksResponse } from './book.types'
+import { AllBooksResponse } from './book.types';
 
 export interface AuthorsDataState {
   [key: string]: {

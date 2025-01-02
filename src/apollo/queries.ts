@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client'
+import { gql } from '@apollo/client';
 
 export const HEADER = gql`
   query {
@@ -11,10 +11,10 @@ export const HEADER = gql`
       }
     }
   }
-`
+`;
 export const ALL_BOOKS = gql`
   query AllBooks($skip: Int, $limit: Int) {
-    all_book(limit: $limit skip: $skip) {
+    all_book(limit: $limit, skip: $skip) {
       total
       items {
         number_of_pages
@@ -44,53 +44,53 @@ export const ALL_BOOKS = gql`
           }
         }
         system {
-            uid
+          uid
         }
       }
     }
   }
-`
+`;
 
 export const GET_BOOK_BY_ID = gql`
   query GetBookById($id: String!) {
-    all_book(where: {uid: $id}) {
-        total
-        items {
-            number_of_pages
-            short_description
-            title
-            rating
-            link {
-                href
-                title
-            }
-            imageConnection {
-                edges {
-                    node {
-                        url
-                    }
-                }
-            }
-            authorrefConnection {
-                edges {
-                    node {
-                        ... on Author {
-                        title
-                        url
-                        }
-                    }
-                }
-            }
-            system {
-                uid
-            }
+    all_book(where: { uid: $id }) {
+      total
+      items {
+        number_of_pages
+        short_description
+        title
+        rating
+        link {
+          href
+          title
         }
+        imageConnection {
+          edges {
+            node {
+              url
+            }
+          }
+        }
+        authorrefConnection {
+          edges {
+            node {
+              ... on Author {
+                title
+                url
+              }
+            }
+          }
+        }
+        system {
+          uid
+        }
+      }
     }
   }
-`
+`;
 export const ALL_AUTHORS = gql`
   query AllBooks($url: String) {
-    all_author(where: {url: $url}) {
+    all_author(where: { url: $url }) {
       items {
         title
         imageConnection {
@@ -173,4 +173,4 @@ export const ALL_AUTHORS = gql`
       }
     }
   }
-`
+`;

@@ -1,48 +1,48 @@
 import { Author } from './author.types';
 
 export type AssetConnection = {
-    edges: AssetEdge[];
-}
+  edges: AssetEdge[];
+};
 
 export type AssetEdge = {
-    node: Asset;
-}
+  node: Asset;
+};
 
 export type Asset = {
-    url: string;
-}
+  url: string;
+};
 
 export type JsonContent = {
-    type: string;
-    attrs?: object;
-    uid: string;
-    children: JsonNode[];
-}
+  type: string;
+  attrs?: object;
+  uid: string;
+  children: JsonNode[];
+};
 
 export type JsonNode = {
-    type: string;
-    attrs?: object;
-    uid: string;
-    children?: JsonNode[];
-    text?: string;
-    bold?: boolean;
-    italic?: boolean;
-}
+  type: string;
+  attrs?: object;
+  uid: string;
+  children?: JsonNode[];
+  text?: string;
+  bold?: boolean;
+  italic?: boolean;
+};
 
 export type Link = {
-    href: string;
-    title: string;
-}
+  href: string;
+  title: string;
+};
 
 export type BookAuthorrefConnection = {
-    edges: BookAuthorrefEdge[];
+  edges: BookAuthorrefEdge[];
 };
 
 export type BookAuthorrefEdge = {
-    node: Author;
+  node: Author;
 };
 
 export interface LoadMoreVariables {
-    limit?: number;
-    skip?: number;
+  limit?: number;
+  skip?: number;
 }

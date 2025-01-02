@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import Header from '@/components/Header/Header'
-import Providers from '@/components/Providers/Providers'
+import type { Metadata } from 'next';
+import './globals.css';
+import Header from '@/components/Header/Header';
+import Providers from '@/components/Providers/Providers';
 
 export const metadata: Metadata = {
-  title: "e-library",
-  description: "The best e-library in the world",
+  title: 'e-library',
+  description: 'The best e-library in the world',
 };
 
 export default function RootLayout({

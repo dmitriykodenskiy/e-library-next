@@ -1,6 +1,6 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import { FlatCompat } from '@eslint/eslintrc';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -17,19 +17,19 @@ const eslintConfig = [
       es2021: true,
     },
     // Plugins
-    plugins: ["prettier"],
+    plugins: ['prettier'],
     // Custom rules
     rules: {
-      "prettier/prettier": ["error", { endOfLine: "auto" }],
+      'prettier/prettier': ['error', { endOfLine: 'auto' }],
     },
   },
   // Extends equivalent configurations
   ...compat.extends(
-    "next",
-    "prettier",
-    "next/core-web-vitals",
-    "eslint:recommended",
-    "plugin:prettier/recommended"
+    'next',
+    'prettier',
+    'next/core-web-vitals',
+    'eslint:recommended',
+    'plugin:prettier/recommended',
   ),
 ];
 

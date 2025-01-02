@@ -25,14 +25,14 @@
   margin-right: 10px;
 }
 
-.bookDesc .author{
+.bookDesc .author {
   font-style: italic;
   text-decoration: none;
   color: #000;
   display: block;
   text-align: center;
 }
-.bookDesc .author:hover{
+.bookDesc .author:hover {
   color: #21f3f3;
 }
 
@@ -62,7 +62,7 @@
   font: italic 12px/12px sans-serif;
 }
 
-.getLink{
+.getLink {
   display: block;
   text-decoration: none;
   padding: 10px;
@@ -72,7 +72,7 @@
   border-radius: 5px;
   text-align: center;
 }
-.getLink:hover{
+.getLink:hover {
   background-color: #21f3f3;
   color: #2b2f32;
 }

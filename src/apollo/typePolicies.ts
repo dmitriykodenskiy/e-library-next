@@ -8,24 +8,22 @@ interface BookResponse {
 }
 
 export const typePolicies = {
-    Query: {
-      fields: {
-        all_book: {
-          keyArgs: ['where'],
-          merge(existing: BookResponse | undefined, incoming: BookResponse, { args }): BookResponse {
-            if (args?.where) {
-              return incoming;
-            }
-            
-            return {
-              total: incoming.total,
-              items: existing 
-                ? [...existing.items, ...incoming.items]
-                : incoming.items,
-              __typename: incoming.__typename
-            };
-          },
-        } satisfies FieldPolicy<BookResponse>,
-      },
+  Query: {
+    fields: {
+      all_book: {
+        keyArgs: ['where'],
+        merge(existing: BookResponse | undefined, incoming: BookResponse, { args }): BookResponse {
+          if (args?.where) {
+            return incoming;
+          }
+
+          return {
+            total: incoming.total,
+            items: existing ? [...existing.items, ...incoming.items] : incoming.items,
+            __typename: incoming.__typename,
+          };
+        },
+      } satisfies FieldPolicy<BookResponse>,
     },
-  }
+  },
+};
