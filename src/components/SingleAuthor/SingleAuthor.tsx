@@ -19,7 +19,6 @@ export const SingleAuthor = ({ uid }: { uid: string }) => {
         title, 
         imageConnection,
         description: { json },
-        additional_sections = []
     } = authorsData
 
     const imgUrl = imageConnection.edges[0]?.node?.url ? imageConnection.edges[0]?.node?.url : 'https://images.contentstack.io/v3/assets/blt774c40ef55b77751/blt4d8d45db95fb81f5/642ed050c29b521140116ba4/no_image_icon.png'

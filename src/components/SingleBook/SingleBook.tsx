@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { useQuery } from '@apollo/client';
 import { GET_BOOK_BY_ID } from '@/apollo/queries';
+import parse from 'html-react-parser';
 import { Book } from '@/types/book.types';
 import styles from './SingleBook.module.css';
 
@@ -33,6 +34,8 @@ export default function BookDetails({ id }: { id: string }) {
     },
   } = data.all_book.items[0] as Book;
 
+  const description = parse(desc)
+
   return (
     <main className={styles.singleBookPage}>
       <button className={styles.backHome} onClick={() => router.push('/')}>
@@ -49,7 +52,7 @@ export default function BookDetails({ id }: { id: string }) {
         />
         <div className={styles.bookDesc}>
           <div className={`${styles.bookTitle} ${styles.bookPageTitle}`}>{title}</div>
-          <div className={styles.shorDesc}>{desc}</div>
+          <div className={styles.shorDesc}>{description}</div>
           <div className={styles.pageCount}>Pages: {pages}</div>
           <a className={styles.getLink} href={link.href}>
             {link.title}
