@@ -9,6 +9,10 @@ export type AllAuthorsResponse = {
 
 export type Author = {
   title: string;
+  url: string;
+  system: {
+    uid: string;
+  };
   imageConnection: AssetConnection;
   description: AuthorDescription;
   additional_sections: AuthorAdditionalSection[];
@@ -64,3 +68,53 @@ export type OtherAuthorNode = {
   url: string;
   imageConnection: AssetConnection;
 };
+
+export interface AuthorData {
+    title: string
+    url: string
+    imageConnection: {
+        edges: Array<{
+            node: {
+                url: string
+            }
+        }>
+    }
+    description: {
+        json: any  // Type this according to your content structure
+    }
+    additional_sections: Array<{
+        __typename: string
+        popular_books?: {
+            books: {
+                bookConnection: {
+                    edges: Array<{
+                        node: {
+                            title: string
+                            url: string
+                            // ... other book properties
+                        }
+                    }>
+                }
+            }
+        }
+        other_authors?: {
+            authors_list: {
+                author_itemConnection: {
+                    edges: Array<{
+                        node: {
+                            title: string
+                            url: string
+                            imageConnection: {
+                                edges: Array<{
+                                    node: {
+                                        url: string
+                                    }
+                                }>
+                            }
+                        }
+                    }>
+                }
+            }
+        }
+    }>
+}

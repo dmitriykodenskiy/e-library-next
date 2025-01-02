@@ -1,0 +1,42 @@
+.authorPage{
+  margin: 40px auto;
+  max-width: 1340px;
+  text-align: left;
+}
+
+.authorSection{
+    display: flex;
+    margin: 40px auto;
+    max-width: 1340px;
+}
+
+.authorImage{
+    margin-right: 10px;
+}
+.backHome {
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding: 10px 20px;
+    background-color: #c5bdbd;
+    font: bold 20px/20px sans-serif;
+}
+
+.authorDesc{
+    display: flex;
+    flex-direction: column;
+}
+
+.authorName{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.shortDesc{
+    font-size: 16px;
+    font-weight: normal;
+    margin-top: 10px;
+}
+

@@ -21,8 +21,6 @@ export default function BookItem({ bookData }: BookItemProps) {
     system: { uid },
   } = bookData;
 
-  console.log(bookData);
-
   let starRatingPosition;
   switch (rating) {
     case 1:
@@ -47,6 +45,7 @@ export default function BookItem({ bookData }: BookItemProps) {
   }
   const imageUrl = imageConnection?.edges[0]?.node?.url;
   const author = authorrefConnection?.edges[0]?.node;
+  const authorId = author?.system.uid;
 
   return (
     <li className={styles.bookItem}>
@@ -65,19 +64,21 @@ export default function BookItem({ bookData }: BookItemProps) {
           <h2 className={styles.title}>{title}</h2>
         </Link>
         <div className={styles.bookInfo}>
-          {/* {author && (
-                        <Link 
-                            href={`/Authors/${author.url}`} 
-                            className={styles.author}
-                        >
-                            {author.title}
-                        </Link>
-                    )} */}
+          {author && (
+              <Link 
+                  href={`/Authors/${authorId}`} 
+                  className={styles.author}
+              >
+                  {author.title}
+              </Link>
+          )}
           <div className={styles.shortDesc}>
             <ReactReadMoreReadLess
               charLimit={200}
               readMoreText={'Read more'}
               readLessText={'Read less'}
+              readMoreClassName='readMore'
+              readLessClassName='readLess'
             >
               {short_description}
             </ReactReadMoreReadLess>

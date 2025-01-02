@@ -35,6 +35,14 @@ a {
   text-decoration: none;
 }
 
+.readMore, .readLess {
+  font-style: italic;
+}
+
+.readMore:hover, .readLess:hover {
+  color: #21f3f3;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

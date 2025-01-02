@@ -39,6 +39,9 @@ export const ALL_BOOKS = gql`
               ... on Author {
                 title
                 url
+                system {
+                  uid
+                }
               }
             }
           }
@@ -88,9 +91,9 @@ export const GET_BOOK_BY_ID = gql`
     }
   }
 `;
-export const ALL_AUTHORS = gql`
-  query AllBooks($url: String) {
-    all_author(where: { url: $url }) {
+export const GET_AUTHOR_BY_ID = gql`
+  query GetAuthorById($uid: String!) {
+    all_author(where: { uid: $uid }) {
       items {
         title
         imageConnection {
@@ -102,73 +105,6 @@ export const ALL_AUTHORS = gql`
         }
         description {
           json
-        }
-        additional_sections {
-          ... on AuthorAdditionalSectionsPopularBooks {
-            __typename
-            popular_books {
-              books {
-                bookConnection {
-                  edges {
-                    node {
-                      ... on Book {
-                        title
-                        url
-                        number_of_pages
-                        rating
-                        short_description
-                        imageConnection {
-                          edges {
-                            node {
-                              url
-                            }
-                          }
-                        }
-                        authorrefConnection {
-                          edges {
-                            node {
-                              ... on Author {
-                                title
-                                url
-                              }
-                            }
-                          }
-                        }
-                        link {
-                          href
-                          title
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-          ... on AuthorAdditionalSectionsOtherAuthors {
-            __typename
-            other_authors {
-              authors_list {
-                author_itemConnection {
-                  edges {
-                    node {
-                      ... on Author {
-                        title
-                        url
-                        imageConnection {
-                          edges {
-                            node {
-                              url
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
         }
       }
     }
