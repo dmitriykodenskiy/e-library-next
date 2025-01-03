@@ -57,7 +57,7 @@ Required ContentStack configuration:
 
 ## Project Structure
 
-README.md
+```
 e-library-next/
 ├── src/
 │ ├── app/ # Next.js pages and layouts
@@ -71,6 +71,7 @@ e-library-next/
 │ └── types/ # TypeScript definitions
 ├── public/ # Static assets
 └── ...config files
+```
 
 ## Key Features
 
