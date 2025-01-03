@@ -1,14 +1,19 @@
 'use client'
 
+import { useSearchParams } from 'next/navigation'
+import { useMemo } from 'react'
 import { useQuery } from '@apollo/client'
 import { ALL_BOOKS } from '@/apollo/queries'
-import { useEffect } from 'react'
-import { LoadMoreVariables } from '@/types/common.types'
+import { Book } from '@/types/book.types'
 import BooksList from '@/components/BooksList/BooksList'
+import Search from '@/components/Search/Search'
 import styles from './page.module.css'
 
 export default function HomePage() {
-  const { loading, error, data, fetchMore, refetch } = useQuery(ALL_BOOKS, {
+  const searchParams = useSearchParams()
+  const searchTerm = searchParams.get('q')?.toLowerCase() || ''
+
+  const { loading, error, data, fetchMore } = useQuery(ALL_BOOKS, {
     variables: {
       limit: 8,
       skip: 0,
@@ -16,31 +21,30 @@ export default function HomePage() {
     pollInterval: 30000,
   })
 
-  // Refetch data every 30 seconds
-//   useEffect(() => {
-//     const interval = setInterval(() => {
-//       refetch()
-//     }, 30000)
+  const filteredBooks = useMemo(() => {
+    if (!data?.all_book?.items) return []
+    if (!searchTerm) return data.all_book.items
 
-//     return () => clearInterval(interval)
-//   }, [refetch])
+    return data.all_book.items.filter((book: Book) => 
+      book.title.toLowerCase().includes(searchTerm) || 
+      book.short_description.toLowerCase().includes(searchTerm) ||
+      book.authorrefConnection?.edges[0]?.node?.title.toLowerCase().includes(searchTerm)
+    )
+  }, [data?.all_book?.items, searchTerm])
 
-  if (loading) return <p>Loading...</p>
-  if (error) return <p>Error : {error.message}</p>
-
-  const booksData = data?.all_book?.items
-
-  if (!booksData) {
-    return <div>No books available</div>
-  }
-
-  const loadMore = (variables: LoadMoreVariables) => {
-    fetchMore({ variables })
-  }
+  if (loading) return <div className={styles.loading}>Loading...</div>
+  if (error) return <div className={styles.error}>Error: {error.message}</div>
 
   return (
     <main className={styles.main}>
-      <BooksList books={booksData} total={data?.all_book?.total} loadMore={loadMore} />
+      <Search />
+      {filteredBooks && (
+        <BooksList 
+          books={filteredBooks} 
+          total={data?.all_book?.total || 0} 
+          loadMore={variables => fetchMore({ variables })} 
+        />
+      )}
     </main>
   )
 } 

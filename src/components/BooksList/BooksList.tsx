@@ -18,7 +18,7 @@ export default function BooksList({ books, total, loadMore }: BooksListProps) {
   };
 
   return (
-    <main className={styles.booksListContainer}>
+    <div className={styles.booksListContainer}>
       <h1 className={styles.title}>Books</h1>
       <section className={styles.booksSection}>
         <div className={styles.booksWrapper}>
@@ -32,6 +32,6 @@ export default function BooksList({ books, total, loadMore }: BooksListProps) {
           )}
         </div>
       </section>
-    </main>
+    </div>
   );
 }

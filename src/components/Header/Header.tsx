@@ -19,9 +19,8 @@ interface HeaderData {
 }
 
 export default function Header() {
-  const { loading, error, data } = useQuery<HeaderData>(HEADER);
+  const { error, data } = useQuery<HeaderData>(HEADER);
 
-  if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
   const headerData = data?.all_header.items[0];

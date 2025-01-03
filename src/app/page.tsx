@@ -2,8 +2,6 @@ import { Metadata } from 'next'
 import HomePage from '@/app/home'
 import { BASE_KEYWORDS } from '@/const/metadata'
 
-export const revalidate = 20 // revalidate every 5 minutes
-
 export const metadata: Metadata = {
   title: 'Browse Books',
   description: 'Explore our collection of digital books',
