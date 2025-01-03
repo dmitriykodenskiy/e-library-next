@@ -14,6 +14,7 @@ export default function BookDetails({ id }: { id: string }) {
 
   const { data, loading, error } = useQuery(GET_BOOK_BY_ID, {
     variables: { id },
+    pollInterval: 30000,
   });
 
   if (loading) return <p>Loading...</p>;

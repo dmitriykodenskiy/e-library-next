@@ -17,6 +17,10 @@ export const typePolicies = {
             return incoming;
           }
 
+          if (!args?.skip) {
+            return incoming;
+          }
+
           return {
             total: incoming.total,
             items: existing ? [...existing.items, ...incoming.items] : incoming.items,

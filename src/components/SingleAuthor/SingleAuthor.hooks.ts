@@ -24,7 +24,8 @@ export const useAuthor = ({ uid }: UseAuthorProps): UseAuthorReturn => {
     const { loading, error, data } = useQuery(GET_AUTHOR_BY_ID, {
         variables: {
             uid
-        }
+        },
+        pollInterval: 30000,
     })
     
     useEffect(() => {

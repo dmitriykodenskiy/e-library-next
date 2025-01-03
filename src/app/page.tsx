@@ -1,38 +1,15 @@
-'use client';
+import { Metadata } from 'next'
+import HomePage from '@/app/home'
+import { BASE_KEYWORDS } from '@/const/metadata'
 
-import { useQuery } from '@apollo/client';
-import { ALL_BOOKS } from '@/apollo/queries';
+export const revalidate = 20 // revalidate every 5 minutes
 
-import { LoadMoreVariables } from '@/types/common.types';
+export const metadata: Metadata = {
+  title: 'Browse Books',
+  description: 'Explore our collection of digital books',
+  keywords: [...BASE_KEYWORDS, 'book catalog', 'digital library'],
+}
 
-import BooksList from '@/components/BooksList/BooksList';
-
-import styles from './page.module.css';
-
-export default function Home() {
-  const { loading, error, data, fetchMore } = useQuery(ALL_BOOKS, {
-    variables: {
-      limit: 8,
-      skip: 0,
-    },
-  });
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error : {error.message}</p>;
-
-  const booksData = data?.all_book?.items;
-
-  if (!booksData) {
-    return <div>No books available</div>;
-  }
-
-  const loadMore = (variables: LoadMoreVariables) => {
-    fetchMore({ variables });
-  };
-
-  return (
-    <main className={styles.main}>
-      <BooksList books={booksData} total={data?.all_book?.total} loadMore={loadMore} />
-    </main>
-  );
+export default function Page() {
+  return <HomePage />
 }
