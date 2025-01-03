@@ -7,6 +7,7 @@ import { ALL_BOOKS } from '@/apollo/queries'
 import { Book } from '@/types/book.types'
 import BooksList from '@/components/BooksList/BooksList'
 import Search from '@/components/Search/Search'
+import Spinner from '@/components/ui/Spinner/Spinner'
 import styles from './page.module.css'
 
 export default function HomePage() {
@@ -32,7 +33,7 @@ export default function HomePage() {
     )
   }, [data?.all_book?.items, searchTerm])
 
-  if (loading) return <div className={styles.loading}>Loading...</div>
+  if (loading) return <Spinner />
   if (error) return <div className={styles.error}>Error: {error.message}</div>
 
   return (

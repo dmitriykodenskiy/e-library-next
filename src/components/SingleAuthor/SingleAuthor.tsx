@@ -4,6 +4,7 @@ import { jsonToHtml } from "@contentstack/json-rte-serializer";
 import parse from 'html-react-parser';
 import { useRouter } from 'next/navigation';
 import { useAuthor } from './SingleAuthor.hooks'
+import Spinner from '@/components/ui/Spinner/Spinner';
 
 import styles from './SingleAuthor.module.css'
 
@@ -11,7 +12,7 @@ export const SingleAuthor = ({ uid }: { uid: string }) => {
     const router = useRouter()
     const { loading, error, authorsData } = useAuthor({ uid })
 
-    if (loading) return <p>Loading...</p>
+    if (loading) return <Spinner />
     if (error) return <p>Error: {error.message}</p>
     if (!authorsData) return <p>No author found</p>
 

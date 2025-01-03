@@ -7,6 +7,7 @@ import { GET_BOOK_BY_ID } from '@/apollo/queries';
 import parse from 'html-react-parser';
 import { Book } from '@/types/book.types';
 import styles from './SingleBook.module.css';
+import Spinner from '@/components/ui/Spinner/Spinner';
 
 export default function BookDetails({ id }: { id: string }) {
   const router = useRouter();
@@ -17,9 +18,9 @@ export default function BookDetails({ id }: { id: string }) {
     pollInterval: 30000,
   });
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
-  if (!data?.all_book?.items || data?.all_book?.items.length === 0) return <p>No book found</p>;
+  if (loading) return <Spinner />;
+  if (error) return <div className={styles.error}>Error: {error.message}</div>;
+  if (!data?.all_book?.items || data?.all_book?.items.length === 0) return <div>Book not found</div>;
 
   const {
     number_of_pages: pages,
