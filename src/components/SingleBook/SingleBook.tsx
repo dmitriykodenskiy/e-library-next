@@ -15,7 +15,7 @@ export default function BookDetails({ id }: { id: string }) {
 
   const { data, loading, error } = useQuery(GET_BOOK_BY_ID, {
     variables: { id },
-    pollInterval: 30000,
+    pollInterval: 300 * 1000,
   });
 
   if (loading) return <Spinner />;

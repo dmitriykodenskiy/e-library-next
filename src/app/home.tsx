@@ -19,7 +19,7 @@ export default function HomePage() {
       limit: 8,
       skip: 0,
     },
-    pollInterval: 30000,
+    pollInterval: 300 * 1000,
   })
 
   const filteredBooks = useMemo(() => {

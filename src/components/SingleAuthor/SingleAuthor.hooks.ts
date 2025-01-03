@@ -21,7 +21,7 @@ export const useAuthor = ({ uid }: UseAuthorProps): UseAuthorReturn => {
         variables: {
             uid
         },
-        pollInterval: 30000,
+        pollInterval: 300 * 1000,
     })
 
     const authorsData = useMemo(() => {
