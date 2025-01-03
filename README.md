@@ -26,7 +26,7 @@ A modern digital library built with Next.js 14, Apollo Client, and ContentStack 
 1. Clone the repository:
 ```bash
 git clone https://github.com/your-username/e-library-next.git
-cd e-library-next`
+cd e-library-next
 ```
 
 2. Install dependencies:
@@ -43,7 +43,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000/e-library-next](http://localhost:3000/e-library-next)
+Open [http://localhost:3000](http://localhost:3000)
 
 ## Environment Variables
 
