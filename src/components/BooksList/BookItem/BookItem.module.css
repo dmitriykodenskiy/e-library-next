@@ -7,9 +7,11 @@
   transform: translateY(-5px);
 }
 
-.bookLink {
+.imageLink,
+.titleLink {
   text-decoration: none;
   color: inherit;
+  display: block;
 }
 
 .imageWrapper {

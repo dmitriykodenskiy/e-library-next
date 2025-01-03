@@ -23,7 +23,13 @@ export default function BooksList({ books, total, loadMore }: BooksListProps) {
       <section className={styles.booksSection}>
         <div className={styles.booksWrapper}>
           <ul className={styles.booksList}>
-            {books?.map((book: BookType) => <BookItem bookData={book} key={book.system.uid} />)}
+            {books?.map((book: BookType, index: number) => (
+              <BookItem 
+                bookData={book} 
+                key={book.system.uid} 
+                isPriority={index < 4}
+              />
+            ))}
           </ul>
           {books?.length < total && (
             <button className={styles.loadMore} onClick={() => loadMore(variables)}>

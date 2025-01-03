@@ -8,9 +8,10 @@ import styles from './BookItem.module.css';
 
 interface BookItemProps {
   bookData: Book;
+  isPriority?: boolean;
 }
 
-export default function BookItem({ bookData }: BookItemProps) {
+export default function BookItem({ bookData, isPriority = false }: BookItemProps) {
   const {
     title,
     rating,
@@ -20,6 +21,7 @@ export default function BookItem({ bookData }: BookItemProps) {
     number_of_pages,
     system: { uid },
   } = bookData;
+  
 
   let starRatingPosition;
   switch (rating) {
@@ -45,32 +47,38 @@ export default function BookItem({ bookData }: BookItemProps) {
   }
   const imageUrl = imageConnection?.edges[0]?.node?.url;
   const author = authorrefConnection?.edges[0]?.node;
-  const authorId = author?.system.uid;
+  const plainDescription = short_description?.replace(/<[^>]+>/g, '') || '';
 
   return (
     <li className={styles.bookItem}>
       <figure>
-        <Link href={`/Books/${uid}`} className={styles.bookLink}>
-          <div className={styles.imageWrapper}>
-            <Image
-              src={imageUrl || '/placeholder.jpg'}
-              alt={title}
-              width={250}
-              height={350}
-              className={styles.bookImage}
-              priority
-            />
-          </div>
-          <h2 className={styles.title}>{title}</h2>
-        </Link>
-        <div className={styles.bookInfo}>
+        <div className={styles.imageWrapper}>
+          <Link href={`/Books/${uid}`} className={styles.imageLink}>
+            {imageUrl && (
+              <Image
+                src={`${imageUrl}?width=250`}
+                alt={title}
+                width={250}
+                height={375}
+                loading={isPriority ? 'eager' : 'lazy'}
+                priority={isPriority}
+                sizes="(max-width: 768px) 100vw, 250px"
+                className={styles.bookImage}
+              />
+            )}
+          </Link>
+        </div>
+        <figcaption className={styles.bookInfo}>
+          <Link href={`/Books/${uid}`} className={styles.titleLink}>
+            <h2 className={styles.title}>{title}</h2>
+          </Link>
           {author && (
-              <Link 
-                  href={`/Authors/${authorId}`} 
-                  className={styles.author}
-              >
-                  {author.title}
-              </Link>
+            <Link 
+              href={`/Authors/${author.system.uid}`}
+              className={styles.author}
+            >
+              {author.title}
+            </Link>
           )}
           <div className={styles.shortDesc}>
             <ReactReadMoreReadLess
@@ -80,17 +88,18 @@ export default function BookItem({ bookData }: BookItemProps) {
               readMoreClassName='readMore'
               readLessClassName='readLess'
             >
-              {short_description}
+              {plainDescription}
             </ReactReadMoreReadLess>
           </div>
           {rating ? (
-            <div
-              className={styles.rating}
+            <div 
+              className={styles.rating} 
               style={{ backgroundPositionY: starRatingPosition }}
-            ></div>
+              aria-label={`Rating: ${rating} out of 5`}
+            />
           ) : null}
           <div className={styles.pageCount}>Pages: {number_of_pages}</div>
-        </div>
+        </figcaption>
       </figure>
     </li>
   );

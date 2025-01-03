@@ -15,12 +15,12 @@ export default function BookDetails({ id }: { id: string }) {
 
   const { data, loading, error } = useQuery(GET_BOOK_BY_ID, {
     variables: { id },
-    pollInterval: 300 * 1000,
+    pollInterval: 300000,
   });
 
   if (loading) return <Spinner />;
   if (error) return <div className={styles.error}>Error: {error.message}</div>;
-  if (!data?.all_book?.items || data?.all_book?.items.length === 0) return <div>Book not found</div>;
+  if (!data?.all_book?.items[0]) return <div>Book not found</div>;
 
   const {
     number_of_pages: pages,
@@ -28,15 +28,9 @@ export default function BookDetails({ id }: { id: string }) {
     title,
     link,
     imageConnection: {
-      edges: [
-        {
-          node: { url },
-        },
-      ],
-    },
+      edges: [{ node: { url } }]
+    }
   } = data.all_book.items[0] as Book;
-
-  const description = parse(desc)
 
   return (
     <main className={styles.singleBookPage}>
@@ -51,10 +45,11 @@ export default function BookDetails({ id }: { id: string }) {
           width={imageWidth}
           height={600}
           priority
+          sizes="(max-width: 768px) 300px, 400px"
         />
         <div className={styles.bookDesc}>
-          <div className={`${styles.bookTitle} ${styles.bookPageTitle}`}>{title}</div>
-          <div className={styles.shorDesc}>{description}</div>
+          <h1 className={`${styles.bookTitle} ${styles.bookPageTitle}`}>{title}</h1>
+          <div className={styles.shorDesc}>{parse(desc)}</div>
           <div className={styles.pageCount}>Pages: {pages}</div>
           <a className={styles.getLink} href={link.href}>
             {link.title}
