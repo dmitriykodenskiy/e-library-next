@@ -10,6 +10,20 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // Add robots configuration
+  async headers() {
+    return [
+      {
+        source: '/robots.txt',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'text/plain',
+          },
+        ],
+      },
+    ]
+  },
 };
 
 export default nextConfig;
