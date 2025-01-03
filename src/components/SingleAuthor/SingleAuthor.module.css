@@ -2,16 +2,20 @@
   margin: 40px auto;
   max-width: 1340px;
   text-align: left;
+  padding: 0 20px;
 }
 
 .authorSection{
     display: flex;
     margin: 40px auto;
-    max-width: 1340px;
+    gap: 32px;
 }
 
 .authorImage{
-    margin-right: 10px;
+    max-width: 400px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
 }
 .backHome {
     cursor: pointer;
@@ -25,18 +29,42 @@
 }
 
 .authorDesc{
-    display: flex;
-    flex-direction: column;
+    flex: 1;
 }
 
 .authorName{
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 32px;
+    margin-bottom: 24px;
 }
 
 .shortDesc{
-    font-size: 16px;
-    font-weight: normal;
-    margin-top: 10px;
+    line-height: 1.6;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .authorSection {
+    flex-direction: column;
+    margin: 20px auto;
+  }
+
+  .authorImage {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .authorDesc {
+    text-align: center;
+  }
+
+  .shortDesc {
+    text-align: left;
+  }
+
+  .authorName {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
 }
 
