@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dmitriykodenskiy.github.io/e-library-next/sitemap.xml 

@@ -1,0 +1,79 @@
+.bookItem {
+  position: relative;
+  transition: transform 0.2s;
+}
+
+.bookItem:hover {
+  transform: translateY(-5px);
+}
+
+.imageLink,
+.titleLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2/3;
+  margin-bottom: 12px;
+}
+
+.bookImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.rating {
+  background-image: url("https://images.contentstack.io/v3/assets/blt774c40ef55b77751/bltc810a86427d53c48/642ec5102cf9c710750b5590/stars.jpg");
+  width: 140px;
+  height: 27px;
+  background-repeat: no-repeat;
+  background-size: 300px;
+  background-position-x: -7px;
+  margin: 10px 0;
+}
+
+.bookInfo {
+  padding: 0 8px;
+}
+
+.shortDesc {
+  margin: 20px 0;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #666;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-align: center;
+}
+
+.author {
+  display: block;
+  font-style: italic;
+  color: #666;
+  text-align: center;
+  text-decoration: none;
+}
+
+.author:hover {
+  color: #21f3f3;
+}
+
+.pageCount {
+  text-align: left;
+  margin: 10px 0;
+  font: italic 12px/12px sans-serif;
+}

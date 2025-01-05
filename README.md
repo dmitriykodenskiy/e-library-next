@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# E-Library Next.js Application
+
+A modern digital library built with Next.js 14, Apollo Client, and ContentStack CMS.
+
+## Features
+
+- 📚 Browse books catalog
+- 🔍 Search functionality
+- 👤 Author profiles
+- 🎨 Responsive design
+- 🚀 Fast page loads with ISR
+- 📱 Mobile-friendly interface
+- 🔄 Real-time updates
+- 🎯 SEO optimized
+
+## Tech Stack
+
+- Next.js 14
+- TypeScript
+- Apollo Client
+- ContentStack CMS
+- CSS Modules
 
 ## Getting Started
 
-First, run the development server:
-
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/your-username/e-library-next.git
+cd e-library-next
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Set up environment variables:
+   - Copy `.env.example` to `.env.local`
+   - Fill in your ContentStack credentials
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Run the development server:
+```bash
+npm run dev
+```
 
-## Learn More
+Open [http://localhost:3000](http://localhost:3000)
 
-To learn more about Next.js, take a look at the following resources:
+## Environment Variables
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Required ContentStack configuration:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Variable | Description |
+|----------|-------------|
+| `NEXT_PUBLIC_APIKEY` | ContentStack API key |
+| `NEXT_PUBLIC_DELIVERY_TOKEN` | ContentStack delivery token |
+| `NEXT_PUBLIC_ENVIRONMENT` | ContentStack environment name |
 
-## Deploy on Vercel
+## Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+e-library-next/
+├── src/
+│ ├── app/ # Next.js pages and layouts
+│ ├── apollo/ # GraphQL setup and queries
+│ ├── components/ # React components
+│ │ ├── BooksList/ # Book listing components
+│ │ ├── SingleBook/ # Book details view
+│ │ ├── Search/ # Search functionality
+│ │ └── ui/ # Shared UI components
+│ ├── hooks/ # Custom React hooks
+│ └── types/ # TypeScript definitions
+├── public/ # Static assets
+└── ...config files
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Key Features
+
+### Search
+- Client-side search across books
+- Searches in titles, descriptions, and author names
+- URL-based search parameters
+- Debounced input
+
+### SEO
+- Dynamic metadata per page
+- JSON-LD structured data
+- Automatic sitemap generation
+- Proper robots.txt configuration
+
+### Data Updates
+- ISR with 5-minute revalidation
+- Real-time updates via Apollo polling
+- Optimistic UI updates
+
+## Deployment
+
+The project is configured for GitHub Pages deployment. The build process:
+1. Generates static pages
+2. Handles proper asset prefixing
+3. Configures base path for GitHub Pages
+
+## Live Demo
+
+Visit [https://dmitriykodenskiy.github.io/e-library-next](https://dmitriykodenskiy.github.io/e-library-next)
