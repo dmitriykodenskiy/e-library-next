@@ -3,7 +3,7 @@ import { getClient } from '@/apollo/client'
 import { ALL_BOOKS_SITEMAP, ALL_AUTHORS_SITEMAP } from '@/apollo/queries'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://dmitriykodenskiy.github.io/e-library-next'
+  const baseUrl = 'https://e-library-next-git-cmsintegration-dmitriykodenskiys-projects.vercel.app'
 
   try {
     // Fetch all books

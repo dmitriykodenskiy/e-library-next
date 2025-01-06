@@ -45,7 +45,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
         name: author.title,
         description: author.description?.json,
         image: author.imageConnection?.edges[0]?.node?.url,
-        url: `https://dmitriykodenskiy.github.io/e-library-next/Authors/${id}`
+        url: `https://e-library-next-git-cmsintegration-dmitriykodenskiys-projects.vercel.app/Authors/${id}`
       };
 
       return (

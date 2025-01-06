@@ -101,4 +101,4 @@ The project is configured for GitHub Pages deployment. The build process:
 
 ## Live Demo
 
-Visit [https://dmitriykodenskiy.github.io/e-library-next](https://dmitriykodenskiy.github.io/e-library-next)
+Visit [https://e-library-next-git-cmsintegration-dmitriykodenskiys-projects.vercel.app](https://e-library-next-git-cmsintegration-dmitriykodenskiys-projects.vercel.app)
