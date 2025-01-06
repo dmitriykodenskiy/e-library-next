@@ -7,7 +7,6 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "eslint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "format": "prettier --write .",
     "prepare": "husky"
   },
@@ -28,18 +27,15 @@
     "use-pagination-hook": "^1.0.2"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^9",
+    "eslint": "^8.57.0",
     "eslint-config-next": "15.1.2",
-    "husky": "^8.0.0",
-    "prettier": "^3.2.5",
-    "stylelint": "^16.9.0",
-    "stylelint-config-standard": "^36.0.1",
-    "stylelint-order": "^6.0.4",
-    "stylelint-scss": "^6.5.1",
-    "typescript": "^5"
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "prettier": "^3.4.2",
+    "typescript": "^5",
+    "husky": "^8.0.0"
   }
 }
