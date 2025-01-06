@@ -25,7 +25,7 @@ A modern digital library built with Next.js 14, Apollo Client, and ContentStack 
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/your-username/e-library-next.git
+git clone https://github.com/dmitriykodenskiy/e-library-next.git
 cd e-library-next
 ```
 
@@ -90,14 +90,10 @@ e-library-next/
 ### Data Updates
 - ISR with 5-minute revalidation
 - Real-time updates via Apollo polling
-- Optimistic UI updates
 
 ## Deployment
 
-The project is configured for GitHub Pages deployment. The build process:
-1. Generates static pages
-2. Handles proper asset prefixing
-3. Configures base path for GitHub Pages
+The project is configured for Vercel deployment.
 
 ## Live Demo
 
