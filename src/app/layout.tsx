@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: 'E-Library - Your Digital Book Collection',
   description: 'Browse our extensive collection of digital books',
   keywords: [...BASE_KEYWORDS],
+  metadataBase: new URL('https://e-library-next-git-cmsintegration-dmitriykodenskiys-projects.vercel.app'),
+  robots: {
+    index: true,
+    follow: true,
+  }
 }
 
 export default function RootLayout({
