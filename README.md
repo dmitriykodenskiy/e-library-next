@@ -101,4 +101,4 @@ The project is configured for GitHub Pages deployment. The build process:
 
 ## Live Demo
 
-Visit [https://e-library-next-git-cmsintegration-dmitriykodenskiys-projects.vercel.app?_vercel_share=VYPwuyIPVpn3juSyTuKgZ2bLXrmwqkrt?_vercel_share=VYPwuyIPVpn3juSyTuKgZ2bLXrmwqkrt](https://e-library-next-git-cmsintegration-dmitriykodenskiys-projects.vercel.app)
+Visit [https://e-library-next-git-cmsintegration-dmitriykodenskiys-projects.vercel.app](https://e-library-next-git-cmsintegration-dmitriykodenskiys-projects.vercel.app?_vercel_share=VYPwuyIPVpn3juSyTuKgZ2bLXrmwqkrt)
