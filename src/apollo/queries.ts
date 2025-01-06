@@ -110,3 +110,23 @@ export const GET_AUTHOR_BY_ID = gql`
     }
   }
 `;
+
+export const ALL_AUTHORS = gql`
+  query AllAuthors {
+    all_author {
+      items {
+        title
+        imageConnection {
+          edges {
+            node {
+              url
+            }
+          }
+        }
+        description {
+          json
+        }
+      }
+    }
+  }
+`;
