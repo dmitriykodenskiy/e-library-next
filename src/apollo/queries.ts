@@ -110,3 +110,47 @@ export const GET_AUTHOR_BY_ID = gql`
     }
   }
 `;
+
+export const ALL_AUTHORS = gql`
+  query AllAuthors {
+    all_author {
+      items {
+        title
+        imageConnection {
+          edges {
+            node {
+              url
+            }
+          }
+        }
+        description {
+          json
+        }
+      }
+    }
+  }
+`;
+
+export const ALL_BOOKS_SITEMAP = gql`
+  query AllBooksSitemap($limit: Int, $skip: Int) {
+    all_book(limit: $limit, skip: $skip) {
+      items {
+        system {
+          uid
+        }
+      }
+    }
+  }
+`;
+
+export const ALL_AUTHORS_SITEMAP = gql`
+  query AllAuthorsSitemap {
+    all_author {
+      items {
+        system {
+          uid
+        }
+      }
+    }
+  }
+`;

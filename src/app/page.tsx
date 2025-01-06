@@ -1,7 +1,9 @@
+import { Suspense } from 'react'
 import { Metadata } from 'next'
 import HomePage from '@/app/home'
 import { BASE_KEYWORDS } from '@/const/metadata'
 import Script from 'next/script'
+import Spinner from '@/components/ui/Spinner/Spinner'
 
 export const metadata: Metadata = {
   title: 'Browse Books',
@@ -15,11 +17,11 @@ export default function Page() {
     '@type': 'CollectionPage',
     name: 'E-Library Book Collection',
     description: 'Browse our extensive collection of digital books',
-    url: 'https://dmitriykodenskiy.github.io/e-library-next',
+    url: 'https://e-library-next-git-cmsintegration-dmitriykodenskiys-projects.vercel.app',
     publisher: {
       '@type': 'Organization',
       name: 'E-Library',
-      url: 'https://dmitriykodenskiy.github.io/e-library-next'
+      url: 'https://e-library-next-git-cmsintegration-dmitriykodenskiys-projects.vercel.app'
     }
   }
 
@@ -32,7 +34,9 @@ export default function Page() {
       >
         {JSON.stringify(jsonLd)}
       </Script>
-      <HomePage />
+      <Suspense fallback={<Spinner />}>
+        <HomePage />
+      </Suspense>
     </>
   )
 }
