@@ -1,11 +1,13 @@
 'use client'
 
+import { Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useCallback, useState } from 'react'
 import { useDebounce } from '@/hooks/useDebounce'
 import styles from './Search.module.css'
+import Spinner from '@/components/ui/Spinner/Spinner'
 
-export default function Search() {
+function SearchInput() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const [value, setValue] = useState(searchParams.get('q') || '')
@@ -35,5 +37,13 @@ export default function Search() {
         className={styles.searchInput}
       />
     </div>
+  )
+}
+
+export default function Search() {
+  return (
+    <Suspense fallback={<Spinner />}>
+      <SearchInput />
+    </Suspense>
   )
 } 
