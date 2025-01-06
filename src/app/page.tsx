@@ -9,6 +9,10 @@ export const metadata: Metadata = {
   title: 'Browse Books',
   description: 'Explore our collection of digital books',
   keywords: [...BASE_KEYWORDS, 'book catalog', 'digital library'],
+  robots: {
+    index: true,
+    follow: true,
+  }
 }
 
 export default function Page() {
