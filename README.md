@@ -73,7 +73,7 @@ e-library-next/
 └── ...config files
 ```
 
-## Key Features
+## Project Key Features
 
 ### Search
 - Client-side search across books
