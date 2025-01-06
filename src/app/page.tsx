@@ -17,11 +17,11 @@ export default function Page() {
     '@type': 'CollectionPage',
     name: 'E-Library Book Collection',
     description: 'Browse our extensive collection of digital books',
-    url: 'https://e-library-next-git-cmsintegration-dmitriykodenskiys-projects.vercel.app',
+    url: 'https://e-library-next-git-cmsintegration-dmitriykodenskiys-projects.vercel.app?_vercel_share=VYPwuyIPVpn3juSyTuKgZ2bLXrmwqkrt',
     publisher: {
       '@type': 'Organization',
       name: 'E-Library',
-      url: 'https://e-library-next-git-cmsintegration-dmitriykodenskiys-projects.vercel.app'
+      url: 'https://e-library-next-git-cmsintegration-dmitriykodenskiys-projects.vercel.app?_vercel_share=VYPwuyIPVpn3juSyTuKgZ2bLXrmwqkrt'
     }
   }
 
