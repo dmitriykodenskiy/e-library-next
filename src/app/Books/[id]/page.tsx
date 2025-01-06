@@ -49,7 +49,7 @@ export default function BookPage({ params }: { params: Promise<{ id: string }> }
           name: book.authorrefConnection?.edges[0]?.node?.title,
         },
         image: book.imageConnection?.edges[0]?.node?.url,
-        url: `https://e-library-next-git-cmsintegration-dmitriykodenskiys-projects.vercel.app/Books/${id}`,
+        url: `https://e-library-next-git-cmsintegration-dmitriykodenskiys-projects.vercel.app?_vercel_share=VYPwuyIPVpn3juSyTuKgZ2bLXrmwqkrt/Books/${id}`,
       };
 
       return (
